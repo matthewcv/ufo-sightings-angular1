@@ -5,9 +5,10 @@
     <title>UFO Sightings</title>
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app-controller.js"></script>
 </head>
-<body ng-app="ufo-sightings">
+<body ng-app="ufo-sightings" ng-controller="AppController as ctrl">
 
-{{'Hello from AngularJS!'}}
+{{ctrl.message}}
 </body>
 </html>
