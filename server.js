@@ -8,7 +8,8 @@ var morgan = require('morgan');
 var app = express();
 
 app.use(morgan("dev"));
-app.use(express.static('node_modules'));
+app.use(express.static('.'));
+
 app.use(function(req,res,next){
     res.sendFile(__dirname + '/index.html')
 })
