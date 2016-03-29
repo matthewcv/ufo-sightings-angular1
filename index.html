@@ -6,6 +6,14 @@
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="app-controller.js"></script>
+    <style>
+        form{
+            border: solid 1px darkgray;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: lightgray
+        }
+    </style>
 </head>
 <body ng-app="ufo-sightings" ng-controller="AppController as ctrl">
 
@@ -14,17 +22,24 @@
     <p>{{report.description}}</p>
 </div>
 
-<div>
+<div ng-if="ctrl.isLoggedIn">
     <h3>Report a UFO Sighting</h3>
     <form>
         <div><label>When? <input placeholder="Date and Time"></label></div>
-        <div><label>Where? <input placeholder="City"> <select placeholder="State"></select></div>
+        <div><label>Where? <input placeholder="City"> <select placeholder="State">
+            <option ng-repeat="state in ctrl.states" value="{{state.abbreviation}}">{{state.name}}</option>
+            </select></div>
         <div><label>What? <textarea cols="60" rows="5"></textarea></label></div>
-        <div><button>Report it!</button>
+        <div><button>Report it!</button></div>
     </form>
 </div>
 
-
+<div>
+    <form>
+        <h4>Log In</h4>
+        <label>Name? <input type="text" ></label> <button >Log me in</button>
+    </form>
+</div>
 
 </body>
 </html>
