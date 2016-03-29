@@ -9,6 +9,22 @@
 </head>
 <body ng-app="ufo-sightings" ng-controller="AppController as ctrl">
 
+<div ng-repeat="report in ctrl.ufoReports">
+    <b>{{report.occurred}} {{report.city}}, {{report.state}}</b>
+    <p>{{report.description}}</p>
+</div>
+
+<div>
+    <h3>Report a UFO Sighting</h3>
+    <form>
+        <div><label>When? <input placeholder="Date and Time"></label></div>
+        <div><label>Where? <input placeholder="City"> <select placeholder="State"></select></div>
+        <div><label>What? <textarea cols="60" rows="5"></textarea></label></div>
+        <div><button>Report it!</button>
+    </form>
+</div>
+
+
 
 </body>
 </html>
