@@ -29,12 +29,12 @@
 <div ng-if="ctrl.isLoggedIn">
     <h3>Report a UFO Sighting</h3>
     <form>
-        <div><label>When? <input placeholder="Date and Time"></label></div>
-        <div><label>Where? <input placeholder="City"> <select placeholder="State">
+        <div><label>When? <input placeholder="Date and Time" ng-model='ctrl.newUfoReport.occurred'></label></div>
+        <div><label>Where? <input placeholder="City"  ng-model='ctrl.newUfoReport.city'> <select placeholder="State" ng-model='ctrl.newUfoReport.state'>
             <option ng-repeat="state in ctrl.states" value="{{state.abbreviation}}">{{state.name}}</option>
             </select></div>
-        <div><label>What? <textarea cols="60" rows="5"></textarea></label></div>
-        <div><button>Report it!</button></div>
+        <div><label>What? <textarea cols="60" rows="5" ng-model='ctrl.newUfoReport.description'></textarea></label></div>
+        <div><button ng-click="ctrl.addUfoReport()">Report it!</button></div>
     </form>
 </div>
 
