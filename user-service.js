@@ -1,7 +1,7 @@
 (function(){
 
     angular.module("ufo-sightings") 
-        .service("userService", userServiceFactory)  
+        .factory("userService", userServiceFactory)  
         
     var _log;    
     function userServiceFactory(log){
@@ -31,3 +31,5 @@
     }        
     
 })();
+
+
