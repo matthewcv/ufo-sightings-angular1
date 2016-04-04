@@ -2,10 +2,13 @@
 
 
     angular.module('ufo-sightings')                     //get the module
-        .controller('AppController', AppController);    //register the controller with the module.
+        .component('appRoot', {
+            templateUrl:"app-component.html",
+            controller:AppComponent
+        });  //register the component  
 
     //define the controller. 
-    function AppController() {
+    function AppComponent() {
         this.ufoReports = UFO_REPORTS;
         this.states = STATES;
         this.isLoggedIn = false;
@@ -14,13 +17,13 @@
         this.userName;
     }
     
-    AppController.prototype.logIn = function(){
+    AppComponent.prototype.logIn = function(){
         if(this.userName){
             this.isLoggedIn = true;
         }
     }
     
-    AppController.prototype.addUfoReport = function(){
+    AppComponent.prototype.addUfoReport = function(){
         UFO_REPORTS.push(this.newUfoReport);
         this.newUfoReport = {};
     }
