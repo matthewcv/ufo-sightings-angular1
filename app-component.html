@@ -3,11 +3,11 @@
     <p>{{report.description}}</p>
 </div>
 
-<h4 ng-if="$ctrl.isLoggedIn">
-    Hello, {{$ctrl.userName}}
+<h4 ng-if="$ctrl.userService.isLoggedIn">
+    Hello, {{$ctrl.userService.userName}}
 </h4>
 
-<div ng-if="$ctrl.isLoggedIn">
+<div ng-if="$ctrl.userService.isLoggedIn">
     <h3>Report a UFO Sighting</h3>
     <form>
         <div><label>When? <input placeholder="Date and Time" ng-model='$ctrl.newUfoReport.occurred'></label></div>
@@ -19,7 +19,7 @@
     </form>
 </div>
 
-<div ng-if="!$ctrl.isLoggedIn">
+<div ng-if="!$ctrl.userService.isLoggedIn">
     <form>
         <h4>Log In</h4>
         <label>Name? <input type="text" ng-model="$ctrl.userName" ></label> <button ng-click="$ctrl.logIn()">Log me in</button>

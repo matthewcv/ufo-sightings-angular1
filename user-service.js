@@ -1,5 +1,7 @@
 (function(){
 
+    angular.module("ufo-sightings") 
+        .service("userService", UserService)  
 
     function UserService(){
         this.isLoggedIn = false;
