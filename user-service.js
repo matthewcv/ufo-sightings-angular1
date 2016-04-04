@@ -1,7 +1,17 @@
 (function(){
 
     angular.module("ufo-sightings") 
-        .service("userService", UserService)  
+        .service("userService", userServiceFactory)  
+        
+    var _log;    
+    function userServiceFactory(log){
+        _log = log;
+        _log.info('user service factory')
+        
+        return new UserService();
+    }
+    
+    userServiceFactory.$inject = ["$log"]
 
     function UserService(){
         this.isLoggedIn = false;
@@ -12,6 +22,7 @@
     UserService.prototype.logIn = function(name){
         this.isLoggedIn = true;
         this.userName = name;
+        _log.info(this.userName, "is logged in")
     }        
     
     UserService.prototype.logOut = function(){
