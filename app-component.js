@@ -19,11 +19,6 @@
     
     AppComponent.$inject = ['$window', 'userService', 'states']
     
-    AppComponent.prototype.logIn = function(){
-        if(this.userName){
-            this.userService.logIn(this.userName)
-        }
-    }
     
     AppComponent.prototype.addUfoReport = function(){
         UFO_REPORTS.push(this.newUfoReport);
