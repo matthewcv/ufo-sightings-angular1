@@ -5,7 +5,7 @@
         templateUrl:"sighting-form-component.html",
         controller:SightingFormController,
         bindings: {
-            
+            onSightingReported:'&'
         }
         
     });   
@@ -23,7 +23,9 @@
     SightingFormController.$inject = ['userService', 'states']
     
     SightingFormController.prototype.reportUfoSighting = function(){
-
+        var arg = {sighting:this.newUfoSighting};
+        this.onSightingReported(arg);
+        this.newUfoSighting = {};
     }
     
 var UFO_SHAPES=[    
