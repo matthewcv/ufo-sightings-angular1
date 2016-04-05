@@ -7,5 +7,6 @@
 
 
 <h4 ng-if="$ctrl.userService.isLoggedIn">
-    Hello, {{$ctrl.userService.userName}}
+    Hello, {{$ctrl.userService.userName}} 
+    <a href="" ng-click="$ctrl.userService.logOut()">Log out</a>
 </h4>
