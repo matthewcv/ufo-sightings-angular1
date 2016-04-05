@@ -8,16 +8,24 @@
         });  //register the component  
 
     //define the controller. 
-    function AppComponent(windowService, userService, states) {
+    function AppComponent(windowService, userService, states, interval) {
         
         this.windowService = windowService;
         this.userService = userService;
-        this.ufoReports = UFO_REPORTS;
+        //this.ufoReports = UFO_REPORTS;
         this.states = states;
         this.newUfoReport = {};
+        
+        this.randomReport = null;
+        var that = this;
+        function randReport(){
+            that.randomReport = UFO_REPORTS[Math.floor(Math.random()*UFO_REPORTS.length)];
+        }
+        interval(randReport, 2000)
+        randReport();
     }
     
-    AppComponent.$inject = ['$window', 'userService', 'states']
+    AppComponent.$inject = ['$window', 'userService', 'states', '$interval']
     
     
     AppComponent.prototype.addUfoReport = function(){

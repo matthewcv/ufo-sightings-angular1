@@ -3,7 +3,7 @@
 <div ng-repeat="report in $ctrl.ufoReports">
     <sighting-report report="report"></sighting-report>
 </div>
-
+<sighting-report report="$ctrl.randomReport"></sighting-report>
 
 <div ng-if="$ctrl.userService.isLoggedIn">
     <h3>Report a UFO Sighting</h3>
