@@ -8,29 +8,20 @@
         });  //register the component  
 
     //define the controller. 
-    function AppComponent(windowService, userService, states, interval) {
+    function AppComponent(windowService, userService) {
         
         this.windowService = windowService;
         this.userService = userService;
-        //this.ufoReports = UFO_REPORTS;
-        this.states = states;
-        this.newUfoReport = {};
+        this.ufoReports = UFO_REPORTS;
         
-        this.randomReport = null;
-        var that = this;
-        function randReport(){
-            that.randomReport = UFO_REPORTS[Math.floor(Math.random()*UFO_REPORTS.length)];
-        }
-        interval(randReport, 2000)
-        randReport();
+        
     }
     
-    AppComponent.$inject = ['$window', 'userService', 'states', '$interval']
+    AppComponent.$inject = ['$window', 'userService']
     
     
-    AppComponent.prototype.addUfoReport = function(){
-        UFO_REPORTS.push(this.newUfoReport);
-        this.newUfoReport = {};
+    AppComponent.prototype.addUfoSightingReport = function(sighting){
+        UFO_REPORTS.push(sighting);
         this.windowService.alert('Thankyou, ' + this.userService.userName + '.\nYour sighting has been reported.')
     }
     

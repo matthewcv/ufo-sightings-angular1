@@ -5,8 +5,8 @@
         
 
     function UserService(){
-        this.isLoggedIn = false;
-        this.userName = null;
+        this.isLoggedIn = true;
+        this.userName = 'Fox Mulder';
     }
     
     

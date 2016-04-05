@@ -1,0 +1,13 @@
+<div ng-if="$ctrl.userService.isLoggedIn">
+    <h3>Report a UFO Sighting</h3>
+    <form>
+        <div><label>When? <input placeholder="Date and Time" ng-model='$ctrl.newUfoSighting.occurred'></label>
+        <label >How long?<input type="text" placeholder="5 minutes" ng-model='$ctrl.newUfoSighting.duration'></label></div>
+        <div><label>Where? <input placeholder="City"  ng-model='$ctrl.newUfoSighting.city'> <select placeholder="State" ng-model='$ctrl.newUfoSighting.state'>
+            <option ng-repeat="state in $ctrl.states" value="{{state.abbreviation}}">{{state.name}}</option>
+            </select></div>
+        <div>What was it shaped like? <input list="ufoShapes" ng-model='$ctrl.newUfoSighting.shape'><datalist id="ufoShapes"><option ng-repeat="shape in $ctrl.ufoShapes" value="{{shape}}"></option></datalist></div>
+        <div><div>Describe what you saw: </div> <textarea cols="60" rows="5" ng-model='$ctrl.newUfoSighting.description'></textarea></div>
+        <div><button ng-click="$ctrl.reportUfoSighting()">Report it!</button></div>
+    </form>
+</div>
