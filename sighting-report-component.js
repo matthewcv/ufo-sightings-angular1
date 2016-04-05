@@ -3,7 +3,10 @@
     angular.module('ufo-sightings')                    
     .component('sightingReport', {
         templateUrl:"sighting-report-component.html",
-        controller:SightingReportController
+        controller:SightingReportController,
+        bindings: {
+            report:'<'
+        }
         
     });   
 
