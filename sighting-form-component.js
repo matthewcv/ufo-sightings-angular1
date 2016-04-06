@@ -7,7 +7,6 @@
         bindings: {
             onSightingReported:'&'
         }
-        
     });   
 
 
@@ -22,10 +21,14 @@
     
     SightingFormController.$inject = ['userService', 'states']
     
-    SightingFormController.prototype.reportUfoSighting = function(){
-        var arg = {sighting:this.newUfoSighting};
-        this.onSightingReported(arg);
-        this.newUfoSighting = {};
+    SightingFormController.prototype.reportUfoSighting = function(form){
+        if(form.$valid){
+            var arg = {sighting:this.newUfoSighting};
+            this.onSightingReported(arg);
+            this.newUfoSighting = {};
+            form.$setPristine();
+            form.$setUntouched();
+        }
     }
     
 var UFO_SHAPES=[    

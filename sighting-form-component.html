@@ -1,13 +1,51 @@
 <div ng-if="$ctrl.userService.isLoggedIn">
+    
     <h3>Report a UFO Sighting</h3>
-    <form>
-        <div><label>When? <input placeholder="Date and Time" ng-model='$ctrl.newUfoSighting.occurred'></label>
-        <label >How long?<input type="text" placeholder="5 minutes" ng-model='$ctrl.newUfoSighting.duration'></label></div>
-        <div><label>Where? <input placeholder="City"  ng-model='$ctrl.newUfoSighting.city'> <select placeholder="State" ng-model='$ctrl.newUfoSighting.state'>
-            <option ng-repeat="state in $ctrl.states" value="{{state.abbreviation}}">{{state.name}}</option>
-            </select></div>
-        <div>What was it shaped like? <input list="ufoShapes" ng-model='$ctrl.newUfoSighting.shape'><datalist id="ufoShapes"><option ng-repeat="shape in $ctrl.ufoShapes" value="{{shape}}"></option></datalist></div>
-        <div><div>Describe what you saw: </div> <textarea cols="60" rows="5" ng-model='$ctrl.newUfoSighting.description'></textarea></div>
-        <div><button ng-click="$ctrl.reportUfoSighting()">Report it!</button></div>
+    <form name='form' class='form-horizontal' novalidate >
+        <div class="form-group" ng-class="form.occured.$invalid && form.occured.$touched ? 'has-feedback has-error':''">
+            <label class="col-sm-3 control-label">When?</label>
+            <div class="col-sm-9">
+                <input name="occured" required type="datetime-local" class="form-control" placeholder="Date and Time" ng-model='$ctrl.newUfoSighting.occurred'>
+                <span ng-if="form.occured.$invalid && form.occured.$touched" class="glyphicon glyphicon-remove form-control-feedback"  aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="form-group" ng-class="form.duration.$invalid && form.duration.$touched ? 'has-feedback has-error':''">
+            <label class="col-sm-3 control-label">How long?</label>
+            <div class="col-sm-9">
+                <input type="text" required name="duration" class="form-control" placeholder="5 minutes, 30 seconds, etc..." ng-model='$ctrl.newUfoSighting.duration'>
+                <span ng-if="form.duration.$invalid && form.duration.$touched" class="glyphicon glyphicon-remove form-control-feedback"  aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="form-group" ng-class="form.city.$invalid && form.city.$touched ||form.state.$invalid && form.state.$touched ? 'has-feedback has-error':''">
+            <label class="col-sm-3 control-label">Where?</label>
+            <div class="col-sm-5">
+                <input placeholder="City" required name="city" type="text" class="form-control" ng-model='$ctrl.newUfoSighting.city'>
+                <span ng-if="form.city.$invalid && form.city.$touched" class="glyphicon glyphicon-remove form-control-feedback"  aria-hidden="true"></span>
+            </div>
+            <div class="col-sm-4">
+                <select placeholder="State" required name="state" class="form-control" ng-model='$ctrl.newUfoSighting.state'>
+                    <option value="" selected disabled >State</option>
+                    <option ng-repeat="state in $ctrl.states" value="{{state.abbreviation}}">{{state.name}}</option>
+                </select>
+                <span ng-if="form.state.$invalid && form.state.$touched" class="glyphicon glyphicon-remove form-control-feedback"  aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="form-group" ng-class="form.shape.$invalid && form.shape.$touched ? 'has-feedback has-error':''">
+            <label class="col-sm-3 control-label">What was it shaped like?</label>
+            <div class="col-sm-9"><input type="text" required name="shape" list="ufoShapes" placeholder="Disk, Triangle, Formation, Etc..."  class="form-control" ng-model='$ctrl.newUfoSighting.shape'><datalist id="ufoShapes"><option ng-repeat="shape in $ctrl.ufoShapes" value="{{shape}}"></option></datalist>
+            <span ng-if="form.shape.$invalid && form.shape.$touched" class="glyphicon glyphicon-remove form-control-feedback"  aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="form-group" ng-class="form.description.$invalid && form.description.$touched ? 'has-feedback has-error':''">
+            <label class="col-sm-3 control-label">What did you see?</label>
+            <div class="col-sm-9"><textarea required name="description" class="form-control" ng-model='$ctrl.newUfoSighting.description'></textarea>
+            <span ng-if="form.description.$invalid && form.description.$touched" class="glyphicon glyphicon-remove form-control-feedback"  aria-hidden="true"></span></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <button ng-disabled="form.$invalid" class="btn btn-default" ng-click="$ctrl.reportUfoSighting(form)">Report it!</button>
+            </div>
+        </div>
     </form>
 </div>
