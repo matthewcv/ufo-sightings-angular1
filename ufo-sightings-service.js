@@ -47,7 +47,12 @@
     }
     
     UfoSightingsService.prototype.getUfoSighting = function (id) {
-        
+        return this.http.get("http://localhost:3000/uforeports.sqlite/uforeports/" + id)
+            .then(function(response){
+                return response.data
+            },function(error){
+                
+            })    
     }
     
     

@@ -1,5 +1,5 @@
 (function(){
-    angular.module("ufo-sightings", [])  //tells angular that we are creating a module named 'ufo-sightings' with no dependencies.
+    angular.module("ufo-sightings", ["ngComponentRouter"])  //tells angular that we are creating a module named 'ufo-sightings' and it depends on the ngComponentRouter module.
     .config(["$locationProvider",function(locationProvider){
         //use html 5 mode so our urls are nicer
         locationProvider.html5Mode(true);

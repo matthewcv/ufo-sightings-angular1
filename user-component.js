@@ -8,7 +8,7 @@
 
     function UserController(userService){
         this.userService = userService;
-        this.userName = null;
+        this.userName = userService.userName;
     }
     UserController.$inject = ['userService']
 

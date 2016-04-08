@@ -1,8 +1,20 @@
-<user></user>
-<sighting-form on-sighting-reported="$ctrl.addUfoSightingReport(sighting)"></sighting-form>
-
-<h3>Recent UFO Sightings</h3>
-<div ng-repeat="report in $ctrl.ufoReports">
-    <sighting-report report="report"></sighting-report>
+<div class="row">
+    <div class="col-md-6">
+        <ul class="nav nav-pills">
+            <li><a >Home</a></li>
+            <li><a >View Sightings</a></li>
+            <li><a >Report a Sighting</a></li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <user></user>
+    </div>
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <ng-outlet></ng-outlet>
+    </div>
+</div>
+
 

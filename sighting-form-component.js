@@ -10,24 +10,31 @@
     });   
 
 
-    function SightingFormController(userService, states){
+    function SightingFormController(userService, states,ufoSightingsService){
         
-        
+        this.ufoSightingsService = ufoSightingsService;
         this.userService = userService;
         this.states = states;
         this.newUfoSighting = {};
-        this.ufoShapes = UFO_SHAPES
+        this.ufoShapes = UFO_SHAPES;
+        this.receivedReport = null;
     }
     
-    SightingFormController.$inject = ['userService', 'states']
+    SightingFormController.$inject = ['userService', 'states', 'ufoSightingsService']
     
     SightingFormController.prototype.reportUfoSighting = function(form){
         if(form.$valid){
-            var arg = {sighting:this.newUfoSighting};
-            this.onSightingReported(arg);
-            this.newUfoSighting = {};
-            form.$setPristine();
-            form.$setUntouched();
+            var that = this;
+            this.ufoSightingsService.saveUfoSightingReport(angular.copy(this.newUfoSighting))
+                .then(function(savedReport){
+                    that.receivedReport = savedReport;
+                    var arg = {sighting:savedReport};
+                    that.onSightingReported(arg);
+                    that.newUfoSighting = {};
+                    form.$setPristine();
+                    form.$setUntouched();
+                });
+            
         }
     }
     

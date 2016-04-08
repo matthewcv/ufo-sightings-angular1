@@ -1,5 +1,4 @@
 <div ng-if="$ctrl.userService.isLoggedIn">
-    
     <h3>Report a UFO Sighting</h3>
     <form name='form' class='form-horizontal' novalidate >
         <div class="form-group" ng-class="form.occured.$invalid && form.occured.$touched ? 'has-feedback has-error':''">
@@ -48,4 +47,8 @@
             </div>
         </div>
     </form>
+    <div ng-if="$ctrl.receivedReport" class="alert alert-success">
+        Thankyou for reporting your sighting. <a href="" class="alert-link">You may view the details here.</a>
+    </div>
+
 </div>
