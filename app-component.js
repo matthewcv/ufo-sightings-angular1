@@ -8,16 +8,17 @@
         });  //register the component  
 
     //define the controller. 
-    function AppComponent(windowService, userService) {
+    function AppComponent(windowService, userService, ufoSightingsService) {
         
         this.windowService = windowService;
         this.userService = userService;
-        this.ufoReports = UFO_REPORTS;
+        //this.ufoReports = UFO_REPORTS;
+        this.ufoSightingsService = ufoSightingsService;
         
-        
+        this.ufoSightingsService.getUfoSightings();
     }
     
-    AppComponent.$inject = ['$window', 'userService']
+    AppComponent.$inject = ['$window', 'userService','ufoSightingsService']
     
     
     AppComponent.prototype.addUfoSightingReport = function(sighting){
