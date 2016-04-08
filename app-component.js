@@ -14,8 +14,10 @@
         this.userService = userService;
         //this.ufoReports = UFO_REPORTS;
         this.ufoSightingsService = ufoSightingsService;
-        
-        this.ufoSightingsService.getUfoSightings();
+        var that = this;
+        this.ufoSightingsService.getUfoSightings().then(function(data){
+            that.ufoReports = data;
+        });
     }
     
     AppComponent.$inject = ['$window', 'userService','ufoSightingsService']
