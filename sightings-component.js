@@ -1,7 +1,7 @@
 (function(){
     angular.module('ufo-sightings')                     
         .component('sightings', {
-            template:"<ng-outlet></ng-outlet>",
+            template:"",
             controller:SightingsComponent,
 
         });    
