@@ -6,7 +6,7 @@
         });    
     
     function HomeComponent(ufoSightingsService){
-        console.log('home')
+        
         this.ufoSightingsService = ufoSightingsService;
         this.ufoReports = null;
         
