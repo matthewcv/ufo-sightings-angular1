@@ -1,6 +1,6 @@
 <h3>Latest UFO Sightings</h3>
 <div ng-repeat="report in $ctrl.ufoReports">
-    <h4>{{report.occurred}} {{report.city}}, {{report.state}}</h4>
+    <h4> <a ng-link="['Details',{id:report.id}]">{{report.occurred}}</a> {{report.city}}, {{report.state}}</h4>
     <p >{{report.description}}</p>
 </div>
 <div><a href="" ng-click="$ctrl.newer()">Newer</a> <a href="" ng-click="$ctrl.older()">Older</a></div>
