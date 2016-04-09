@@ -10,18 +10,21 @@
         this.ufoSightingsService = ufoSightingsService;
         this.sighting = null;
         
+
+    }
+    
+       
+    SightingDetailsComponent.$inject = ["ufoSightingsService"]
+    
+    SightingDetailsComponent.prototype.$routerOnActivate = function(next,previous){
         var that = this;
         
-        //todo: need to get the sighting id to pass to getUfoSighting()
-        this.ufoSightingsService.getUfoSighting().then(function(data){
+        this.ufoSightingsService.getUfoSighting(next.params.id).then(function(data){
             that.sighting = data;
             
             
         });
-
+        
     }
-    
-    
-    SightingDetailsComponent.$inject = ["ufoSightingsService"]
 
 })();
