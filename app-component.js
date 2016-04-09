@@ -12,14 +12,17 @@
             ]
         });   
 
-    function AppComponent( userService) {
-        
+    function AppComponent( userService,rootRouter) {
+        console.dir(rootRouter)
+        this.rootRouter = rootRouter;
         this.userService = userService;
     }
     
-    AppComponent.$inject = ['userService']
+    AppComponent.$inject = ['userService','$rootRouter']
     
-    
+    AppComponent.prototype.$onInit = function(next,prev){
+        console.log(next,prev)
+    }
     
     
 })();

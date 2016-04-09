@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-md-6">
         <ul class="nav nav-pills">
-            <li><a ng-link="['Home']" >Home</a></li>
-            <li><a ng-link="['Sightings']">View Sightings</a></li>
-            <li><a ng-link="['Report']">Report a Sighting</a></li>
+            <li  ng-class="{active:$ctrl.rootRouter._currentInstruction.component.componentType == 'home'}"><a ng-link="['Home']" >Home</a></li>
+            <li ng-class="{active:$ctrl.rootRouter._currentInstruction.component.componentType == 'sightings'}"><a ng-link="['Sightings']">View Sightings</a></li>
+            <li ng-class="{active:$ctrl.rootRouter._currentInstruction.component.componentType == 'sightingForm'}" ng-if="$ctrl.userService.isLoggedIn"><a ng-link="['Report']">Report a Sighting</a></li>
         </ul>
     </div>
     <div class="col-md-6">
