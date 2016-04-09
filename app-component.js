@@ -7,7 +7,7 @@
             controller:AppComponent,
             $routeConfig:[
                 {path:"/", name:"Home", component:"home"},
-                {path:"/sightings", name:"Sightings", component:"sightings"},
+                {path:"/sightings/...", name:"Sightings", component:"sightings"},
                 {path:"/reportsighting", name:"Report", component:"sightingForm"}
             ]
         });   
