@@ -12,12 +12,12 @@
   "dependencies": {
     "@angular/router": "^0.2.0",
     "angular": "^1.5.3",
-    "angular-mocks": "^1.5.3",
     "bootstrap": "^3.3.6",
     "express": "^4.13.4",
     "morgan": "^1.7.0"
   },
   "devDependencies": {
+    "angular-mocks": "^1.5.3",
     "jasmine-core": "^2.3.4",
     "karma": "~0.12",
     "karma-chrome-launcher": "^0.1.12",
