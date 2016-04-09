@@ -5,7 +5,7 @@
             controller:SightingsComponent,
             $routeConfig:[
                 {path:"/", name:"List", component:"sightingsList", useAsDefault:true},
-                {path:"/:id", name:"Details", component:"sightingForm"}
+                {path:"/:id", name:"Details", component:"sightingDetails"}
             ]
         });    
     
