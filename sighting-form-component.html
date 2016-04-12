@@ -4,7 +4,7 @@
         <div class="form-group" ng-class="form.occured.$invalid && form.occured.$touched ? 'has-feedback has-error':''">
             <label class="col-sm-3 control-label">When?</label>
             <div class="col-sm-9">
-                <input name="occured" required type="datetime-local" class="form-control" placeholder="Date and Time" ng-model='$ctrl.newUfoSighting.occurred'>
+                <input name="occured" date-time-picker required type="text" class="form-control" placeholder="Date and Time" ng-model='$ctrl.newUfoSighting.occurred'>
                 <span ng-if="form.occured.$invalid && form.occured.$touched" class="glyphicon glyphicon-remove form-control-feedback"  aria-hidden="true"></span>
             </div>
         </div>

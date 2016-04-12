@@ -1,5 +1,5 @@
 (function(){
-    angular.module("ufo-sightings", ["ngComponentRouter"])  
+    angular.module("ufo-sightings", ["ngComponentRouter","myWidgets"])  
     .config(["$locationProvider",function(locationProvider){
         //use html 5 mode so our urls are nicer
         locationProvider.html5Mode(true);
